@@ -2,15 +2,21 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.html {
+  scroll-behavior: smooth;
+  scroll-padding-top : 75px;
 }
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+body{
+  background-color: #d5cbf7;
+  color: black;
+  overflow-x: hidden;
+  font-family: 'Roboto';
 }
 
 .App-header {

@@ -1,0 +1,92 @@
+body {
+    width: 100%;
+  }
+  
+  .navbar {
+    background-color: #f8f3f3;
+    padding: 10px 20px; /* Add padding for top and sides */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    padding-top: 20px; /* Ensure there is padding from the top */
+    position: relative;
+  }
+  
+  /* Add scroll effect */
+  .navbar.scrolled {
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Links container styling */
+  .navbar .nav-link {
+    color: #3d3c3c;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0 20px; /* Adjust space between links */
+    text-decoration: none;
+    transition: color 0.4s ease;
+  }
+  
+  .nav-link:hover,
+  .nav-link.active {
+    color: #ac9afc;
+  }
+  
+  /* Smooth scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Push nav items to the far right */
+  .navbar-collapse {
+    display: flex;
+    justify-content: flex-end; /* Align items to the right */
+    width: 100%;
+  }
+  
+  /* Remove the unnecessary toggle button */
+  .navbar-toggler {
+    display: none; /* Hides the toggle button */
+  }
+  
+  /* Add responsiveness for tablet and phone screens */
+  @media (max-width: 992px) {
+    .navbar-logo {
+      height: 40px;
+    }
+  
+    .navbar-link {
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+  }
+  
+  /* Media query for phones (up to 480px) */
+  @media (max-width: 480px) {
+    .navbar {
+      padding: 10px 15px; /* Reduced padding */
+    }
+  
+    .navbar .nav-link {
+      font-size: 1.4rem; /* Smaller font size for smaller screens */
+      margin: 0 10px; /* Reduced spacing between links */
+    }
+  
+    /* Make the navbar links stack vertically on smaller screens */
+    .navbar-collapse {
+      flex-direction: column;
+      align-items: center; /* Center the items */
+    }
+  
+    .navbar-toggler {
+      display: block; /* Show the toggle button for mobile */
+    }
+  
+    .navbar-collapse.show {
+      display: block; /* Ensure it displays correctly when expanded */
+    }
+  
+    .nav-link {
+      padding: 10px 0; /* Add more vertical space between links */
+    }
+  }
+  
