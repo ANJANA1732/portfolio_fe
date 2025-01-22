@@ -10,8 +10,7 @@ html, body {
     display: flex; /* Flex layout for horizontal alignment */
     justify-content: space-between; /* Space between text and animation */
     align-items: center; /* Vertical alignment */
-    padding-left: 4%; /* Adjust left padding for alignment */
-    padding-top: -1%; /* Space from the navbar */
+    padding-left: 5%; /* Adjust left padding for alignment */
     height: 100vh; /* Full viewport height */
     background-color: #f4f4f9; /* Light background color */
 }
@@ -21,6 +20,7 @@ html, body {
     flex: 1; /* Takes up half the space */
     text-align: left;
     color: #333; /* Default text color */
+    padding-bottom: 13%;
 }
 
 /* General text style */
@@ -63,6 +63,48 @@ html, body {
     width: 100%;
     height: 100%;
 }
+
+.arrow-container {
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  
+  .arrow-icon {
+    color: #000;
+    transition: transform 0.3s ease;
+  }
+  
+  .arrow-icon:hover {
+    transform: translateX(10px); /* Move slightly to the right when hovered */
+  }
+
+  .ping{
+    margin-top: 3%;
+  }
+
+ 
+  .social-links {
+    display: flex;
+    flex-direction: row;
+    gap:calc(5px + 1vw);
+    padding-left: 5%;
+  }
+  
+  .social-icon img {
+    
+    transition: transform 0.3s ease; 
+    padding: 4%;
+    
+  }
+  
+  .social-icon img:hover {
+    transform: scale(1.2); /* Slightly enlarge icon on hover */
+  }
+
+  .text-container:hover .social-links {
+    visibility: visible;
+    opacity: 1;
+  }
 
 /* Responsive adjustments for tablet and phone screens */
 @media (max-width: 768px) {

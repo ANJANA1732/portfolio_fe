@@ -3,7 +3,7 @@ body {
   }
   
   .navbar {
-    background-color: #f8f3f3;
+    background-color: #fcfcfc;
     padding: 10px 20px; /* Add padding for top and sides */
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     padding-top: 20px; /* Ensure there is padding from the top */
@@ -26,7 +26,10 @@ body {
     transition: color 0.4s ease;
   }
   
-  .nav-link:hover,
+  .nav-link:hover {
+    color: #ac9afc;
+  }
+
   .nav-link.active {
     color: #ac9afc;
   }

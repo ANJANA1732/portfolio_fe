@@ -9,7 +9,7 @@ const NavBar = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const path = location.pathname.substring(1); // Get the current path
+    const path = location.pathname.substring(1); 
     setActiveLink(path || "Home");
   }, [location]);
 
@@ -29,13 +29,13 @@ const NavBar = () => {
             <Nav.Link as={Link} to="/" className={activeLink === "Home" ? "active" : ""}>
               Home
             </Nav.Link>
-            <Nav.Link as={Link} to="/About" className={activeLink === "about" ? "active" : ""}>
+            <Nav.Link as={Link} to="/About" className={activeLink === "About" ? "active" : ""}>
               About
             </Nav.Link>
-            <Nav.Link as={Link} to="/Project" className={activeLink === "contact" ? "active" : ""}>
+            <Nav.Link as={Link} to="/Project" className={activeLink === "Project" ? "active" : ""}>
               Project
             </Nav.Link>
-            <Nav.Link as={Link} to="/Contact" className={activeLink === "contact" ? "active" : ""}>
+            <Nav.Link as={Link} to="/Contact" className={activeLink === "Contact" ? "active" : ""}>
               Contact
             </Nav.Link>
           </Nav>
