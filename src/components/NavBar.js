@@ -4,15 +4,10 @@ import { Link, useLocation } from "react-router-dom";
 import "../styles/NavBar.css";
 
 const NavBar = () => {
-  const [activeLink, setActiveLink] = useState("Home");
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  useEffect(() => {
-    const path = location.pathname.substring(1); 
-    setActiveLink(path || "Home");
-  }, [location]);
-
+  // Handle navbar scroll effect
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", onScroll);
@@ -20,22 +15,41 @@ const NavBar = () => {
   }, []);
 
   return (
-    <Navbar expand="lg" className={scrolled ? "scrolled" : ""}>
+    <Navbar
+      expand="lg"
+      className={scrolled ? "scrolled navbar-custom" : "navbar-custom"}
+    >
       <Container>
         
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link as={Link} to="/" className={activeLink === "Home" ? "active" : ""}>
+            <Nav.Link
+              as={Link}
+              to="/"
+              className={location.pathname === "/" ? "active" : ""}
+            >
               Home
             </Nav.Link>
-            <Nav.Link as={Link} to="/About" className={activeLink === "About" ? "active" : ""}>
+            <Nav.Link
+              as={Link}
+              to="/About"
+              className={location.pathname === "/About" ? "active" : ""}
+            >
               About
             </Nav.Link>
-            <Nav.Link as={Link} to="/Project" className={activeLink === "Project" ? "active" : ""}>
+            <Nav.Link
+              as={Link}
+              to="/Project"
+              className={location.pathname === "/Project" ? "active" : ""}
+            >
               Project
             </Nav.Link>
-            <Nav.Link as={Link} to="/Contact" className={activeLink === "Contact" ? "active" : ""}>
+            <Nav.Link
+              as={Link}
+              to="/Contact"
+              className={location.pathname === "/Contact" ? "active" : ""}
+            >
               Contact
             </Nav.Link>
           </Nav>

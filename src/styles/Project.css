@@ -1,0 +1,115 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .projects-container {
+    padding: 20px;
+    text-align: center;
+    background-color: #f8f4fc; /* Light background */
+    min-height: 100vh;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center; /* Vertically align heading and animation */
+    justify-content: flex-start; /* Horizontally align content to the left */
+    margin-bottom: 40px; /* Space between heading+animation and cards */
+    margin-top: 4%; /* Top spacing */
+    padding-left: 20px; /* Align heading padding with other pages */
+  }
+  
+  .animation-container {
+    margin-right: 20px; /* Space between animation and heading */
+  }
+  
+  .projects-heading {
+    font-size: 3rem;
+    color: #000000;
+    font-weight: bold;
+    margin: 0;
+    text-align: left; /* Ensure the heading aligns left */
+  }
+  
+  /* Cards container */
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between cards */
+    justify-content: center;
+    margin-top: 40px; /* Add space between header and cards */
+  }
+  
+  /* Individual card styling */
+  .card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Image container */
+  .image-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .image-container:hover .overlay {
+    opacity: 1;
+  }
+  
+  /* Card title */
+  .card h2 {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .cards-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .card {
+      width: 90%; /* Full width for smaller screens */
+    }
+  }
+  

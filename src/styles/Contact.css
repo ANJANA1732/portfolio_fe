@@ -1,39 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap'); /* Import Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap'); /* Import Roboto font */
 
 html, body {
-  font-family: 'Roboto', sans-serif; /* Set the entire page to use Poppins */
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100vh;
-  letter-spacing: .25rem;
+  letter-spacing: 0.25rem;
+  box-sizing: border-box;
 }
 
 .contact-container {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap; /* Enable wrapping for smaller screens */
+  justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 20px;
   min-height: 90vh;
 }
 
 .form-section {
   flex: 1;
-  padding-left: 10%;
+  padding: 20px;
   border-radius: 15px;
   max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  margin-bottom: 20px; /* Add space between sections on smaller screens */
 }
 
 .form-section h1 {
-  font-size: 3.5rem;
+  font-size: 2rem; /* Reduce font size for better responsiveness */
   color: #333;
   margin-bottom: 20px;
+  text-align: center; /* Center align header on smaller screens */
 }
 
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 20px;
 }
 
 .form-group {
@@ -42,34 +48,31 @@ html, body {
 }
 
 .form-group label {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin-bottom: 5px;
   color: #333;
 }
 
-/* Apply the same font to all input and textarea fields */
 .form-group input.glass-effect,
 .form-group textarea.glass-effect {
-  font-family: 'Roboto', sans-serif; /* Use Poppins font */
+  font-family: 'Roboto', sans-serif;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  font-size: 1.3rem;
+  font-size: 1rem;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(15px);
-  border: 1px solid #8a4af3; /* Violet border */
+  border: 1px solid #8a4af3;
   color: #333;
 }
 
-/* Apply placeholder text same as the content text */
 .form-group input::placeholder,
 .form-group textarea::placeholder {
   color: #8d8d8d;
-  opacity: 1; /* Make placeholder visible and match text */
-  font-family: inherit; /* Match the placeholder font to the field font */
+  opacity: 1;
+  font-family: inherit;
 }
 
-/* Focus state for input and textarea */
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
@@ -77,8 +80,8 @@ html, body {
 }
 
 button {
-  padding: 10px 15px;
-  font-size: 1.5rem;
+  padding: 12px;
+  font-size: 1.2rem;
   background-color: #a17afc;
   color: #fff;
   border: none;
@@ -97,6 +100,54 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 600px;
-  transform: rotate(-20deg);
+  max-width: 500px;
+  margin: 0 auto;
+  transform: rotate(0deg); /* Reset rotation for small screens */
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column; /* Stack sections vertically */
+  }
+
+  .form-section {
+    padding: 15px;
+    width: 100%; /* Take full width on smaller screens */
+    max-width: none; /* Remove max-width constraint */
+  }
+
+  .form-section h1 {
+    font-size: 1.8rem;
+  }
+
+  .contact-form {
+    gap: 15px;
+  }
+
+  button {
+    padding: 10px;
+    font-size: 1rem;
+  }
+
+  .animation-section {
+    max-width: 100%;
+    margin-top: 20px; /* Add spacing between form and animation */
+  }
+}
+
+@media (max-width: 480px) {
+  .form-section h1 {
+    font-size: 1.5rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .form-group input.glass-effect,
+  .form-group textarea.glass-effect {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
 }

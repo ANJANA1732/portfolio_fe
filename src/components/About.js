@@ -1,6 +1,8 @@
 import React from "react";
 import Lottie from "react-lottie";
 import animationData from "../assets/Animation-2.json";
+
+// Icons
 import CIcon from "../assets/icons/icons-c.svg";
 import GitIcon from "../assets/icons/icons-git.svg";
 import SpringBootIcon from "../assets/icons/icons-spring-boot.svg";
@@ -10,6 +12,7 @@ import CssIcon from "../assets/icons/icons-css.svg";
 import JavaIcon from "../assets/icons/icons-java.svg";
 import FigmaIcon from "../assets/icons/icons-figma.svg";
 import IllustratorIcon from "../assets/icons/icons-illustrator.svg";
+
 import "../styles/About.css";
 
 const About = () => {
@@ -22,15 +25,27 @@ const About = () => {
     },
   };
 
+  const skills = [
+    { icon: CIcon, name: "C" },
+    { icon: GitIcon, name: "Git" },
+    { icon: SpringBootIcon, name: "Spring Boot" },
+    { icon: ReactIcon, name: "React" },
+    { icon: HtmlIcon, name: "HTML" },
+    { icon: CssIcon, name: "CSS" },
+    { icon: JavaIcon, name: "Java" },
+    { icon: FigmaIcon, name: "Figma" },
+    { icon: IllustratorIcon, name: "Illustrator" },
+  ];
+
   return (
     <div className="about-container">
       {/* Left Section */}
       <div className="left-section">
         <h1>About Me</h1>
         <p>
-          Hello! I'm a passionate developer with experience in React, Spring Boot,
-          PostgreSQL, and more. I enjoy solving complex problems and designing
-          intuitive user interfaces.
+          Hello! I'm a passionate developer with experience in React, Spring
+          Boot, PostgreSQL, and more. I enjoy solving complex problems and
+          designing intuitive user interfaces.
         </p>
         <p>
           In my free time, I explore creative tools like Figma and contribute to
@@ -42,45 +57,15 @@ const About = () => {
       {/* Right Section */}
       <div className="right-section">
         <div className="animation-box">
-          <Lottie options={defaultOptions} height={500} width={500} />
+          <Lottie options={defaultOptions} height={400} width={400} />
         </div>
         <div className="skills-container">
-          <div className="skill">
-            <img src={CIcon} alt="C" />
-            <span>C</span>
-          </div>
-          <div className="skill">
-            <img src={GitIcon} alt="Git" />
-            <span>Git</span>
-          </div>
-          <div className="skill">
-            <img src={SpringBootIcon} alt="Spring Boot" />
-            <span>Spring Boot</span>
-          </div>
-          <div className="skill">
-            <img src={ReactIcon} alt="React" />
-            <span>React</span>
-          </div>
-          <div className="skill">
-            <img src={HtmlIcon} alt="HTML" />
-            <span>HTML</span>
-          </div>
-          <div className="skill">
-            <img src={CssIcon} alt="CSS" />
-            <span>CSS</span>
-          </div>
-          <div className="skill">
-            <img src={JavaIcon} alt="Java" />
-            <span>Java</span>
-          </div>
-          <div className="skill">
-            <img src={FigmaIcon} alt="Figma" />
-            <span>Figma</span>
-          </div>
-          <div className="skill">
-            <img src={IllustratorIcon} alt="Illustrator" />
-            <span>Illustrator</span>
-          </div>
+          {skills.map((skill, index) => (
+            <div className="skill" key={index}>
+              <img src={skill.icon} alt={skill.name} />
+              <span>{skill.name}</span>
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -88,4 +73,3 @@ const About = () => {
 };
 
 export default About;
-

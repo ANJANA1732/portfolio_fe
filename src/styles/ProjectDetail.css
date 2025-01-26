@@ -1,0 +1,36 @@
+.project-detail-container {
+    padding: 20px;
+    text-align: center;
+    background-color: #f8f4fc;
+    min-height: 100vh;
+  }
+  
+  .image-container {
+    width: 100%;
+    max-width: 600px; 
+    margin: 0 auto; 
+  }
+  
+  .project-image {
+    max-width: 100%;
+    height: 500px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .project-title {
+    font-size: 2.5rem;
+    color: #007bff;
+    margin-bottom: 20px;
+  }
+  
+  .project-description {
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.6;
+    text-align: justify;
+  }
+  
+  
+  

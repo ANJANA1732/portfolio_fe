@@ -31,6 +31,7 @@ const Contact = () => {
       setResponseMessage("Message sent successfully!");
       setFormData({ name: "", email: "", message: "" }); // Reset form fields
     } catch (error) {
+      
       console.error("Error while sending data to the backend:", error);
       setResponseMessage("Failed to send message. Please try again.");
     }

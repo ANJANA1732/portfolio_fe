@@ -3,43 +3,43 @@
 html, body {
     font-family: 'Roboto', sans-serif;
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .home-container {
-    display: flex; /* Flex layout for horizontal alignment */
-    justify-content: space-between; /* Space between text and animation */
-    align-items: center; /* Vertical alignment */
-    padding-left: 5%; /* Adjust left padding for alignment */
-    height: 100vh; /* Full viewport height */
-    background-color: #f4f4f9; /* Light background color */
+    display: flex;
+    flex-direction: row; /* Default layout for large screens */
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    padding: 0 5%;
+    background-color: #f4f4f9;
 }
 
-/* Style for the text container */
+/* Text container styles */
 .text-container {
-    flex: 1; /* Takes up half the space */
+    flex: 1;
+    color: #333;
     text-align: left;
-    color: #333; /* Default text color */
-    padding-bottom: 13%;
 }
 
-/* General text style */
 .text-container h2 {
     margin: 0;
-    font-family: "Arial", sans-serif;
 }
 
-/* Style for the dynamic text */
 .text-container h2:first-of-type {
-    font-size: 4rem;
-    line-height: 4rem;
+    font-size: 3.5rem;
     font-weight: 300;
     color: #666;
+    line-height: 1.2;
 }
 
-/* Gradient style for "I'm Anjana" */
 .text-container .highlight {
-    font-size: 6rem;
+    font-size: 5rem;
     font-weight: 700;
     background: linear-gradient(to right, #ff7eb3, #8e44ad);
     background-clip: text;
@@ -48,114 +48,99 @@ html, body {
     margin-top: 10px;
 }
 
-/* Style for the animation container */
-.animation-container {
-    flex: 1; /* Takes up the remaining space */
+/* Social icons styling */
+.social-icons {
     display: flex;
-    justify-content: center; /* Center animation horizontally */
-    align-items: center; /* Center animation vertically */
-}
-
-/* Animation size for larger screens */
-.animation-container .lottie-animation {
-    max-width: 500px;
-    max-height: 500px;
-    width: 100%;
-    height: 100%;
-}
-
-.arrow-container {
+    gap: 15px;
     margin-top: 20px;
-    cursor: pointer;
-  }
-  
-  .arrow-icon {
+}
+
+.social-icons a {
     color: #000;
-    transition: transform 0.3s ease;
-  }
-  
-  .arrow-icon:hover {
-    transform: translateX(10px); /* Move slightly to the right when hovered */
-  }
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
 
-  .ping{
-    margin-top: 3%;
-  }
+.social-icons a:hover {
+    color: #0073e6;
+    transform: scale(1.1);
+}
 
- 
-  .social-links {
+/* Animation container styles */
+.hanimation-container {
+    flex: 1;
     display: flex;
-    flex-direction: row;
-    gap:calc(5px + 1vw);
-    padding-left: 5%;
-  }
-  
-  .social-icon img {
-    
-    transition: transform 0.3s ease; 
-    padding: 4%;
-    
-  }
-  
-  .social-icon img:hover {
-    transform: scale(1.2); /* Slightly enlarge icon on hover */
-  }
+    justify-content: center;
+    align-items: center;
+}
 
-  .text-container:hover .social-links {
-    visibility: visible;
-    opacity: 1;
-  }
+.hanimation-container .lottie-animation {
+    max-width: 600px;
+    max-height: 600px;
+    width: 100%;
+    height: auto;
+}
 
-/* Responsive adjustments for tablet and phone screens */
-@media (max-width: 768px) {
+/* Media query for tablets and smaller screens */
+@media (max-width: 1024px) {
     .home-container {
         flex-direction: column; /* Stack text and animation vertically */
-        padding-left: 20px; /* Reduce padding on smaller screens */
+        padding: 10% 5%;
+    }
+
+    .text-container {
+        text-align: center;
+        margin-bottom: 20px;
     }
 
     .text-container h2:first-of-type {
-        font-size: 2rem; /* Reduce text size */
+        font-size: 2.5rem; /* Adjust font size */
     }
 
     .text-container .highlight {
-        font-size: 4rem; /* Adjust "I'm Anjana" font size */
+        font-size: 3.5rem; /* Adjust highlight size */
     }
 
-    .animation-container {
-        margin-top: 20px; /* Add space between text and animation */
+    .hanimation-container {
+        margin-top: 20px;
     }
 
-    .animation-container .lottie-animation {
-        max-width: 300px;
-        max-height: 300px;
+    .hanimation-container .lottie-animation {
+        max-width: 450px; /* Smaller animation size */
     }
 }
 
 /* Media query for phones (up to 480px) */
 @media (max-width: 480px) {
     .home-container {
-        padding-left: 10px; /* Further reduce padding for small screens */
-        padding-top: 5%; /* Reduce top padding to make better use of space */
+        flex-direction: column; /* Ensure vertical stacking */
+        justify-content: center;
+        align-items: center;
+        padding: 5%;
+        height: auto; /* Allow content to flow dynamically */
     }
 
     .text-container {
-        flex: 1; /* Text takes up more space */
-        text-align: center; /* Center the text on small screens */
+        text-align: center;
+        margin-bottom: 20px;
     }
 
     .text-container h2:first-of-type {
-        font-size: 1.8rem; /* Smaller font size for the first line */
+        font-size: 1.8rem; /* Smaller font size for phones */
+        line-height: 1.3;
     }
 
     .text-container .highlight {
-        font-size: 3.5rem; /* Adjust "I'm Anjana" size for phones */
+        font-size: 2.8rem; /* Adjust highlight size */
+        line-height: 1.2;
     }
 
-    .animation-container {
-        margin-top: 15px; /* Add space between text and animation */
+    .social-icons {
+        gap: 8px;
+        justify-content: center;
     }
 
-    .animation-container .lottie-animation {
+    .hanimation-container .lottie-animation {
         max-width: 250px; /* Smaller animation size */
         max-height: 250px;
     }
