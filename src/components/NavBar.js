@@ -1,61 +1,75 @@
-import React, { useState, useEffect } from "react";
-import { Navbar, Container, Nav } from "react-bootstrap";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
 import "../styles/NavBar.css";
 
 const NavBar = () => {
-  const [scrolled, setScrolled] = useState(false);
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Handle navbar scroll effect
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const handleToggleMenu = () => {
+    setMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleCloseMenu = () => {
+    setMobileMenuOpen(false);
+  };
 
   return (
-    <Navbar
-      expand="lg"
-      className={scrolled ? "scrolled navbar-custom" : "navbar-custom"}
-    >
-      <Container>
-        
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
-            <Nav.Link
-              as={Link}
+    <nav className="navbar-custom">
+      <div className="navbar-container">
+        {/* Brand Logo 
+        <Link to="/" className="navbar-logo" onClick={handleCloseMenu}>
+          <h2 style={{ fontWeight: "bold", margin: 0 }}>MyBrand</h2>
+        </Link>
+        */}
+
+        {/* Hamburger Icon */}
+        <div className="navbar-toggle" onClick={handleToggleMenu}>
+          {isMobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+        </div>
+
+        {/* Navbar Links */}
+        <ul className={`navbar-menu ${isMobileMenuOpen ? "active" : ""}`}>
+          <li>
+            <Link
               to="/"
               className={location.pathname === "/" ? "active" : ""}
+              onClick={handleCloseMenu}
             >
               Home
-            </Nav.Link>
-            <Nav.Link
-              as={Link}
+            </Link>
+          </li>
+          <li>
+            <Link
               to="/About"
               className={location.pathname === "/About" ? "active" : ""}
+              onClick={handleCloseMenu}
             >
               About
-            </Nav.Link>
-            <Nav.Link
-              as={Link}
+            </Link>
+          </li>
+          <li>
+            <Link
               to="/Project"
               className={location.pathname === "/Project" ? "active" : ""}
+              onClick={handleCloseMenu}
             >
               Project
-            </Nav.Link>
-            <Nav.Link
-              as={Link}
+            </Link>
+          </li>
+          <li>
+            <Link
               to="/Contact"
               className={location.pathname === "/Contact" ? "active" : ""}
+              onClick={handleCloseMenu}
             >
               Contact
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
   );
 };
 

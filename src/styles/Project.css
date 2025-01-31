@@ -12,18 +12,22 @@ body {
     text-align: center;
     background-color: #f8f4fc; /* Light background */
     min-height: 100vh;
+    
   }
   
   .header {
     display: flex;
     align-items: center; /* Vertically align heading and animation */
     justify-content: flex-start; /* Horizontally align content to the left */
-    margin-bottom: 40px; /* Space between heading+animation and cards */
-    margin-top: 4%; /* Top spacing */
-    padding-left: 20px; /* Align heading padding with other pages */
+    /*margin-bottom: 40px;  Space between heading+animation and cards */
+    padding-top: 5%;
+    padding-left: 15px; /* Align heading padding with other pages */
+    display: flex;
+    flex-direction: row;
   }
   
   .animation-container {
+    padding-top: .5%;
     margin-right: 20px; /* Space between animation and heading */
   }
   
@@ -33,6 +37,7 @@ body {
     font-weight: bold;
     margin: 0;
     text-align: left; /* Ensure the heading aligns left */
+    
   }
   
   /* Cards container */

@@ -4,6 +4,7 @@ import animationData from "../assets/Animation-4.json";
 import "../styles/Project.css";
 import { Link } from "react-router-dom";
 
+// Sample fallback data in case fetch fails
 const sampleProjects = [
   {
     id: 1,
@@ -17,18 +18,6 @@ const sampleProjects = [
     image: "/assets/p2.svg",
     link: "/project/2",
   },
-  {
-    id: 3,
-    name: "Grievance Management System",
-    image: "/assets/p3.svg",
-    link: "/project/3",
-  },
-  {
-    id: 4,
-    name: "Avengers Frontend Project",
-    image: "/assets/p4.jpeg",
-    link: "/project/4",
-  },
 ];
 
 const Projects = () => {
@@ -37,10 +26,16 @@ const Projects = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await fetch("/api/projects");
+        // Fetch the projects from the backend
+        const response = await fetch("http://localhost:8080/api/project"); // Adjusted to match the backend endpoint
         if (response.ok) {
           const data = await response.json();
-          setProjects(data);
+          // Map the backend data to include image URL for each project
+          const updatedProjects = data.map((project) => ({
+            ...project,
+            image: `http://localhost:8080/api/project/${project.id}/image`, // Dynamically generate the image URL
+          }));
+          setProjects(updatedProjects);
         } else {
           throw new Error("Failed to fetch data");
         }
@@ -60,6 +55,9 @@ const Projects = () => {
     rendererSettings: { preserveAspectRatio: "xMidYMid slice" },
   };
 
+  
+  const fallbackImage = "/assets/fallback.jpg";
+
   return (
     <div className="projects-container">
       <div className="header">
@@ -71,19 +69,21 @@ const Projects = () => {
       <div className="cards-container">
         {projects.map((project) => (
           <Link to={`/project/${project.id}`} key={project.id} className="card">
-
-          <div className="image-container">
-            <img src={project.image} alt={project.name} />
-            <div className="overlay">
-              <p>View More</p>
-            </div>
-          </div>
-          <h2>{project.name}</h2>
-          </Link>
+            <div className="image-container">
         
+              <img
+                src={project.image}
+                alt={project.name}
+                onError={(e) => (e.target.src = fallbackImage)} // Fallback image logic
+              />
+              <div className="overlay">
+                <p>View More</p>
+              </div>
+            </div>
+            <h2>{project.name}</h2>
+          </Link>
         ))}
-    </div>
-     
+      </div>
     </div>
   );
 };

@@ -1,21 +1,50 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Lottie from "react-lottie";
 import animationData from "../assets/Animation-2.json";
-
-// Icons
-import CIcon from "../assets/icons/icons-c.svg";
-import GitIcon from "../assets/icons/icons-git.svg";
-import SpringBootIcon from "../assets/icons/icons-spring-boot.svg";
-import ReactIcon from "../assets/icons/icons-react.svg";
-import HtmlIcon from "../assets/icons/icons-html5.svg";
-import CssIcon from "../assets/icons/icons-css.svg";
-import JavaIcon from "../assets/icons/icons-java.svg";
-import FigmaIcon from "../assets/icons/icons-figma.svg";
-import IllustratorIcon from "../assets/icons/icons-illustrator.svg";
-
 import "../styles/About.css";
 
 const About = () => {
+  const [icons, setIcons] = useState([]);
+  const [descriptions, setDescriptions] = useState([]); // State to hold multiple descriptions
+
+  // Fetch icons and description data
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Fetching icons data
+        const iconResponse = await fetch("http://localhost:8080/api/icon");
+        if (iconResponse.ok) {
+          const iconData = await iconResponse.json();
+          const updatedIcons = iconData.map((icon) => ({
+            ...icon,
+            image: `http://localhost:8080/api/icon/${icon.id}/img`,
+          }));
+          setIcons(updatedIcons);
+        } else {
+          throw new Error("Failed to fetch icons");
+        }
+
+        // Fetching About description data
+        const aboutResponse = await fetch("http://localhost:8080/api/about");
+        if (aboutResponse.ok) {
+          const aboutData = await aboutResponse.json();
+          if (aboutData && aboutData.length > 0) {
+            setDescriptions(aboutData); // Set all descriptions into state
+          } else {
+            setDescriptions([{ description: "No description available." }]);
+          }
+        } else {
+          throw new Error("Failed to fetch description");
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setDescriptions([{ description: "Error fetching description." }]);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -25,45 +54,34 @@ const About = () => {
     },
   };
 
-  const skills = [
-    { icon: CIcon, name: "C" },
-    { icon: GitIcon, name: "Git" },
-    { icon: SpringBootIcon, name: "Spring Boot" },
-    { icon: ReactIcon, name: "React" },
-    { icon: HtmlIcon, name: "HTML" },
-    { icon: CssIcon, name: "CSS" },
-    { icon: JavaIcon, name: "Java" },
-    { icon: FigmaIcon, name: "Figma" },
-    { icon: IllustratorIcon, name: "Illustrator" },
-  ];
+  const fallbackImage = "/assets/fallback.jpg";
 
   return (
     <div className="about-container">
-      {/* Left Section */}
       <div className="left-section">
         <h1>About Me</h1>
-        <p>
-          Hello! I'm a passionate developer with experience in React, Spring
-          Boot, PostgreSQL, and more. I enjoy solving complex problems and
-          designing intuitive user interfaces.
-        </p>
-        <p>
-          In my free time, I explore creative tools like Figma and contribute to
-          open-source projects.
-        </p>
-        <p>Feel free to reach out for collaborations or project discussions!</p>
+        {descriptions.map((desc, index) => (
+          <p key={index}>{desc.description || "Loading description..."}</p> 
+        ))} {/* Display all descriptions dynamically */}
       </div>
 
-      {/* Right Section */}
       <div className="right-section">
         <div className="animation-box">
           <Lottie options={defaultOptions} height={400} width={400} />
         </div>
         <div className="skills-container">
-          {skills.map((skill, index) => (
-            <div className="skill" key={index}>
-              <img src={skill.icon} alt={skill.name} />
-              <span>{skill.name}</span>
+          {icons.map((icon, index) => (
+            <div className="image" key={index}>
+              <img
+                src={icon.image}
+                alt={icon.name || "Skill Icon"}
+                onError={(e) => {
+                  e.target.src = fallbackImage;
+                  e.target.style.width = "100px"; // Adjust as needed
+                  e.target.style.height = "100px"; // Adjust as needed
+                  e.target.style.objectFit = "cover"; // Keeps aspect ratio
+                }}
+              />
             </div>
           ))}
         </div>

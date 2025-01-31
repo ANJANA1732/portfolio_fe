@@ -14,8 +14,9 @@ html, body {
   display: flex;
   flex-wrap: wrap; /* Enable wrapping for smaller screens */
   justify-content: center;
+  padding-top: 5%;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
   min-height: 90vh;
 }
 
@@ -26,6 +27,7 @@ html, body {
   max-width: 600px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background: #fff;
+  padding-top: 5%;
   margin-bottom: 20px; /* Add space between sections on smaller screens */
 }
 
@@ -108,10 +110,11 @@ button:hover {
 @media (max-width: 768px) {
   .contact-container {
     flex-direction: column; /* Stack sections vertically */
+    padding-top: 15%;
   }
 
   .form-section {
-    padding: 15px;
+    padding: 5px;
     width: 100%; /* Take full width on smaller screens */
     max-width: none; /* Remove max-width constraint */
   }
@@ -136,8 +139,13 @@ button:hover {
 }
 
 @media (max-width: 480px) {
+
+  .contact-container{
+    padding: 15%;
+  }
   .form-section h1 {
     font-size: 1.5rem;
+    
   }
 
   button {

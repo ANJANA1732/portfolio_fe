@@ -25,10 +25,12 @@ html, body {
     flex: 1;
     color: #333;
     text-align: left;
+    padding: 10px; /* Add padding for spacing */
 }
 
 .text-container h2 {
     margin: 0;
+    word-wrap: break-word; /* Ensure long words wrap */
 }
 
 .text-container h2:first-of-type {
@@ -75,58 +77,112 @@ html, body {
 }
 
 .hanimation-container .lottie-animation {
-    max-width: 600px;
-    max-height: 600px;
-    width: 100%;
-    height: auto;
+    max-width: 500px;
+    max-height: 500px;
+    width: 80%; 
+    height: 60%;
 }
 
-/* Media query for tablets and smaller screens */
+/* Media query for tablets (iPad) */
 @media (max-width: 1024px) {
     .home-container {
         flex-direction: column; /* Stack text and animation vertically */
-        padding: 10% 5%;
+        padding: 20% 5%;
     }
 
     .text-container {
         text-align: center;
         margin-bottom: 20px;
+        
     }
 
     .text-container h2:first-of-type {
-        font-size: 2.5rem; /* Adjust font size */
+        font-size: 3rem; /* Adjust font size */
     }
 
     .text-container .highlight {
-        font-size: 3.5rem; /* Adjust highlight size */
+        font-size: 5rem; /* Adjust highlight size */
     }
 
     .hanimation-container {
-        margin-top: 20px;
+        margin-bottom: 60%;
     }
 
     .hanimation-container .lottie-animation {
-        max-width: 450px; /* Smaller animation size */
+        max-width: 350px; /* Smaller animation size for tablets */
+        max-height: 350px;
+        width: 80%; /* Make the animation responsive */
+        height: 80%;
+    }
+
+    .social-icons{
+        margin-top: 20px;
     }
 }
 
-/* Media query for phones (up to 480px) */
-@media (max-width: 480px) {
+/* Media query for phones (up to 768px) */
+@media (max-width: 768px) {
     .home-container {
         flex-direction: column; /* Ensure vertical stacking */
         justify-content: center;
         align-items: center;
-        padding: 5%;
+        padding: 15%;
         height: auto; /* Allow content to flow dynamically */
     }
 
     .text-container {
         text-align: center;
         margin-bottom: 20px;
+        padding: 0 10px; /* Add padding for spacing on small screens */
     }
 
     .text-container h2:first-of-type {
-        font-size: 1.8rem; /* Smaller font size for phones */
+        
+        font-size: 2.2rem; /* Smaller font size for phones */
+        line-height: 1.3;
+    }
+
+    .text-container .highlight {
+        font-size: 3.2rem; /* Adjust highlight size */
+        line-height: 1.2;
+    }
+
+    .social-icons {
+        gap: 10px;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .hanimation-container {
+        margin-top: 15px;
+    }
+
+    .hanimation-container .lottie-animation {
+        max-width: 250px; /* Smaller animation size */
+        max-height: 250px;
+        width: 80%; /* Make the animation responsive */
+        height: 80%;
+    }
+}
+
+/* Media query for very small phones (up to 480px) */
+@media (max-width: 480px) {
+    .home-container {
+        flex-direction: column; /* Ensure vertical stacking */
+        justify-content: center;
+        align-items: center;
+        padding-top: 35%;
+        height: 100vh;
+    }
+
+    .text-container {
+        text-align: center;
+        margin-bottom: 15px;
+        padding: 0 5px; /* Add some padding */
+    }
+
+    .text-container h2:first-of-type {
+        font-size: 1.8rem; /* Smaller font size for smaller phones */
         line-height: 1.3;
     }
 
@@ -138,10 +194,20 @@ html, body {
     .social-icons {
         gap: 8px;
         justify-content: center;
+        margin-top: 20px;
+        
     }
 
-    .hanimation-container .lottie-animation {
-        max-width: 250px; /* Smaller animation size */
-        max-height: 250px;
+    .hanimation-container {
+        margin-top: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 397px;
+        max-height: 300px;
+        
+        
     }
+
+   
 }
