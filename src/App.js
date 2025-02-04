@@ -6,16 +6,29 @@ import About from "./components/About";
 import Project from "./components/Project"; // Your project list page
 import ProjectDetail from "./components/ProjectDetail"; // Detail page for a specific project
 import Contact from "./components/Contact";
+import Admin from "./components/Admin";
+import Login from "./components/Login";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const App = () => (
   <>
-    <NavBar />
+    
     <Routes>
-      <Route path="/" element={<Home />} />          {/* Home page */}
-      <Route path="/about" element={<About />} />    {/* About page */}
-      <Route path="/project" element={<Project />} /> {/* Project page */}
-      <Route path="/project/:id" element={<ProjectDetail />} /> {/* Project detail page */}
-      <Route path="/contact" element={<Contact />} /> {/* Contact page */}
+      <Route path="/" element={<><NavBar /><Home /></>} />          {/* Home page */}
+      <Route path="/about" element={<><NavBar /><About /></>} />    {/* About page */}
+      <Route path="/project" element={<><NavBar /><Project /></>} /> {/* Project page */}
+      <Route path="/project/:id" element={<><NavBar /><ProjectDetail /></>} /> {/* Project detail page */}
+      <Route path="/contact" element={<><NavBar /><Contact /></>} /> {/* Contact page */}
+      <Route path="/admin" element={<Admin />} />
+      <Route path="/login" element={<Login />} />
+      <Route
+          path="/admin" element={
+            <ProtectedRoute>
+              <Admin />
+            </ProtectedRoute>
+          }
+        />
+      
     </Routes>
   </>
 );

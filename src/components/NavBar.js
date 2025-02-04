@@ -18,11 +18,7 @@ const NavBar = () => {
   return (
     <nav className="navbar-custom">
       <div className="navbar-container">
-        {/* Brand Logo 
-        <Link to="/" className="navbar-logo" onClick={handleCloseMenu}>
-          <h2 style={{ fontWeight: "bold", margin: 0 }}>MyBrand</h2>
-        </Link>
-        */}
+        
 
         {/* Hamburger Icon */}
         <div className="navbar-toggle" onClick={handleToggleMenu}>

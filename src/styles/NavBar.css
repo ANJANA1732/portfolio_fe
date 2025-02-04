@@ -1,11 +1,10 @@
-/* General Reset */
+
 body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
 }
 
-/* Navbar Styles */
 .navbar-custom {
   background-color: #fcfcfc;
   padding: 10px 20px;
@@ -52,7 +51,7 @@ body {
   color: #ac9afc;
 }
 
-/* Navbar Toggle (Hamburger) */
+
 .navbar-toggle {
   display: none;
   cursor: pointer;

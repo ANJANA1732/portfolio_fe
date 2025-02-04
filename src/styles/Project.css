@@ -20,7 +20,7 @@ body {
     align-items: center; /* Vertically align heading and animation */
     justify-content: flex-start; /* Horizontally align content to the left */
     /*margin-bottom: 40px;  Space between heading+animation and cards */
-    padding-top: 5%;
+    padding-top: 3%;
     padding-left: 15px; /* Align heading padding with other pages */
     display: flex;
     flex-direction: row;

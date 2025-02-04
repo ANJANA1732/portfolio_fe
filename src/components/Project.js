@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Lottie from "react-lottie";
-import animationData from "../assets/Animation-4.json";
 import "../styles/Project.css";
 import { Link } from "react-router-dom";
 
@@ -48,22 +46,13 @@ const Projects = () => {
     fetchProjects();
   }, []);
 
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData,
-    rendererSettings: { preserveAspectRatio: "xMidYMid slice" },
-  };
-
+ 
   
   const fallbackImage = "/assets/fallback.jpg";
 
   return (
     <div className="projects-container">
       <div className="header">
-        <div className="animation-container">
-          <Lottie options={defaultOptions} height={80} width={80} />
-        </div>
         <h1 className="projects-heading">Works</h1>
       </div>
       <div className="cards-container">
